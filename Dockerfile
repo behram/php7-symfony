@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
       libonig-dev
 
 RUN docker-php-ext-install -j$(nproc) iconv \
-      && docker-php-ext-configure gd \ 
+      && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr; \ 
       && docker-php-ext-install -j$(nproc) gd \
       && docker-php-ext-install -j$(nproc) pdo \
       && docker-php-ext-install -j$(nproc) exif \
